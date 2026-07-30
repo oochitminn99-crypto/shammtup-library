@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
 
@@ -31,13 +33,14 @@ export default function Home() {
         headers: {
           "Context-Type": "application/json"
         },
-        body: JSON.stringify({ name, email })
+        body: JSON.stringify({ name, email, password })
       })
       alert("User Updated");
       setEditId(null);
 
       setName("");
       setEmail("");
+      setPassword("");
 
       fetchUser();
     } else {
@@ -47,7 +50,7 @@ export default function Home() {
         headers: {
           "Context-Type": "application/json"
         },
-        body: JSON.stringify({ name, email })
+        body: JSON.stringify({ name, email, password })
       });
 
       const data = await res.json();
@@ -56,6 +59,7 @@ export default function Home() {
 
       setName("");
       setEmail("");
+      setPassword("");
 
       fetchUser();
     }
@@ -86,8 +90,14 @@ export default function Home() {
             onChange={(e) => setName(e.target.value)}
             className="bg-slate-300" required />
           <br /><br />
+          
           <input type="text" placeholder="Enter Email" value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="bg-slate-300" required />
+          <br /><br />
+
+          <input type="password" placeholder="Password" value={email}
+            onChange={(e) => setPassword(e.target.value)}
             className="bg-slate-300" required />
           <br /><br />
           <button type="submit" className="px-2 py-1 bg-red-200 rounded-lg">
