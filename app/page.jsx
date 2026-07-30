@@ -96,7 +96,7 @@ export default function Home() {
             className="bg-slate-300" required />
           <br /><br />
 
-          <input type="password" placeholder="Password" value={email}
+          <input type="password" placeholder="Password" value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="bg-slate-300" required />
           <br /><br />
