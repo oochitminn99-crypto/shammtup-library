@@ -81,31 +81,38 @@ export default function Home() {
   }
   return (
     <div>
-     <div className="grid place-items-center h-screen">
-      <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
-        <h1 className="text-xl font-bold my-4">
-          Register
-        </h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-3">
-          <input type="text" placeholder="Enter Name" value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="bg-slate-300" required />
-          <br /><br />
+      <div className="grid place-items-center h-screen">
+        <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
+          <h1 className="text-xl font-bold my-4">
+            Register
+          </h1>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-3">
+            <input type="text" placeholder="Enter Name" value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-slate-300" required />
+            <br /><br />
 
-          <input type="text" placeholder="Enter Email" value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="bg-slate-300" required />
-          <br /><br />
+            <input type="text" placeholder="Enter Email" value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-slate-300" required />
+            <br /><br />
 
-          <input type="password" placeholder="Password" value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="bg-slate-300" required />
-          <br /><br />
-          <button type="submit" className="bg-green-600 text-white font-bold cursor-pointer px-6 py-1 rounded-sm hover:bg-green-900">
-            {editId ? "Update User" : "Create User"}
-          </button>
-        </form>
-      </div>
+            <input type="password" placeholder="Password" value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="bg-slate-300" required />
+            <br /><br />
+            <button type="submit" className="bg-green-600 text-white font-bold cursor-pointer px-6 py-1 rounded-sm hover:bg-green-900">
+              {editId ? "Update User" : "Create User"}
+            </button>
+
+            <Link href={"/login"} className="text-md mt-2 text-right">
+              Already have an account?
+              <span className="underline underline-offset-2 text-blue-600 font-semibold ms-2.5">
+                Login
+              </span>
+            </Link>
+          </form>
+        </div>
       </div>
 
       <br />
