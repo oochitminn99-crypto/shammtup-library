@@ -87,7 +87,7 @@ export default function Home() {
           <h1 className="text-xl font-bold my-4">
             Register
           </h1>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-3">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-1.5">
             <input type="text" placeholder="Enter Name" value={name}
               onChange={(e) => setName(e.target.value)}
               className="bg-slate-300" required />
@@ -106,7 +106,7 @@ export default function Home() {
               {editId ? "Update User" : "Create User"}
             </button>
 
-            <Link href={"/login"} className="text-md mt-2 text-right">
+            <Link href={"/login"} className="text-md mt-2 me-3 text-right">
               Already have an account?
               <span className="underline underline-offset-2 text-blue-600 font-semibold ms-2.5">
                 Login
