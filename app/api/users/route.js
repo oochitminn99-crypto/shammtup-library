@@ -26,13 +26,6 @@ export async function POST(req) {
         })
     }
 }
-/*
-const { name, email, password } = await req.json();
-        const hashedPassword = await bcrypt.hash(password, 10)
-
-        await connectDB();
-        await User.create({ name, email, password: hashedPassword });
-*/
 
 export async function GET() {
     try {

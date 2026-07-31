@@ -81,16 +81,17 @@ export default function Home() {
   }
   return (
     <div>
-      <div className="text-center">
-        <h1 className="text-3xl text-red-600 text-center">
-          {editId ? "Updated User" : "Create User"}
+     <div className="grid place-items-center h-screen">
+      <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
+        <h1 className="text-xl font-bold my-4">
+          Register
         </h1>
-        <form onSubmit={handleSubmit} className="pt-6 ">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-3">
           <input type="text" placeholder="Enter Name" value={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-slate-300" required />
           <br /><br />
-          
+
           <input type="text" placeholder="Enter Email" value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="bg-slate-300" required />
@@ -100,10 +101,11 @@ export default function Home() {
             onChange={(e) => setPassword(e.target.value)}
             className="bg-slate-300" required />
           <br /><br />
-          <button type="submit" className="px-2 py-1 bg-red-200 rounded-lg">
+          <button type="submit" className="bg-green-600 text-white font-bold cursor-pointer px-6 py-1 rounded-sm hover:bg-green-900">
             {editId ? "Update User" : "Create User"}
           </button>
         </form>
+      </div>
       </div>
 
       <br />
