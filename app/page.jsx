@@ -27,11 +27,6 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !password) {
-            alert("All fields are necessary.")
-            return;
-        }
-
     //Update User
     if (editId) {
       await fetch(`/api/users/${editId}`, {
