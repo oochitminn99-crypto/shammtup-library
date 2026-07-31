@@ -3,16 +3,17 @@ import {connectDB} from "@/lib/mongoose";
 import {NextResponse} from "next/server";
 
 import User from "@/models/User";
+import bcrypt from "bcryptjs";
 
 export async function POST(req) {
     try {
          await connectDB();
          //const body = await req.json();
          const {name, email, password} = await req.json();
-         const hashedPassword = await bcrypt.hash(password, 10)
+         const hashedPassword = await bcrypt.hash(password, 10);
 
          //const user = await User.create(body);
-         const user = await User.create({ name, email, password: hashedPassword });
+         const user = await User.create({name, email, password: hashedPassword});
 
          return NextResponse.json({
             message: "User Created Successfully",
