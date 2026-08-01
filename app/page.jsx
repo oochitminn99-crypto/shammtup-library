@@ -57,7 +57,7 @@ export default function Home() {
 
       const {user} = await resUsersExist.json();
       if(user) {
-        setDefaultResultOrder("User Already Exist");
+        setError("User Already Exist");
         return;
       }
 
