@@ -57,6 +57,7 @@ export default function Home() {
 
       const {user} = await resUsersExist.json();
       if(user) {
+        alert("User Already Exist")
         setError("User Already Exist");
         return;
       }
