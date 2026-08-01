@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
@@ -64,6 +66,12 @@ export default function Home() {
       setPassword("");
 
       fetchUser();
+
+      if(res.ok) {
+        router.push("/dashboard");
+      } else {
+        alert("login fail");
+      }
     }
   }
 
