@@ -1,5 +1,5 @@
 import {connectDB} from "@/lib/mongoose";
-import { User } from "@clerk/nextjs/server";
+
 import { NextResponse } from "next/server";
 
 export async function POST() {
