@@ -10,7 +10,6 @@ export default function Home() {
 
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
-  const [error, setError] = useState("")
 
   //Get User
   const fetchUser = async () => {
@@ -47,21 +46,7 @@ export default function Home() {
       fetchUser();
     } else {
       //Add user
-      const resUsersExist = await fetch("/api/usersExist", {
-        method: "POST",
-        headers: {
-          "Context-Type": "application/json"
-        },
-        body: JSON.stringify({email})
-      });
-
-      const {user} = await resUsersExist.json();
-      if(user) {
-        alert("User Already Exist")
-        setError("User Already Exist");
-        return;
-      }
-
+      
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
