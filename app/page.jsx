@@ -10,6 +10,7 @@ export default function Home() {
 
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
+  const [error, setError] = useState("")
 
   //Get User
   const fetchUser = async () => {
@@ -46,6 +47,20 @@ export default function Home() {
       fetchUser();
     } else {
       //Add user
+      const resUsersExist = await fetch("/api/usersExist", {
+        method: "POST",
+        headers: {
+          "Context-Type": "application/json"
+        },
+        body: JSON.stringify({email})
+      });
+
+      const {user} = await resUsersExist.json();
+      if(user) {
+        setDefaultResultOrder("User Already Exist");
+        return;
+      }
+
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -124,13 +139,13 @@ export default function Home() {
 
         <div className="row mt-3 mb-4 ms-32">
           <div>
-            <table className="border-separate  ms-2 border-spacing-2 border-[3px] border-fuchsia-700 rounded-xl w-[1000px]">
+            <table className="border-separate  ms-2 border-spacing-2 border-[3px] border-fuchsia-700 rounded-xl w-[1000]">
               <thead>
                 <tr>
-                  <th className="border-[2px] border-fuchsia-950 w-1/5">User Name</th>
-                  <th className="border-[2px] border-fuchsia-950 w-2/5">Email</th>
-                  <th className="border-[2px] border-fuchsia-950 w-1/5">Edit</th>
-                  <th className="border-[2px] border-fuchsia-950">Delete</th>
+                  <th className="border-[2] border-fuchsia-950 w-1/5">User Name</th>
+                  <th className="border-[2] border-fuchsia-950 w-2/5">Email</th>
+                  <th className="border-[2] border-fuchsia-950 w-1/5">Edit</th>
+                  <th className="border-[2] border-fuchsia-950">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,17 +153,17 @@ export default function Home() {
                   users.map((user) => (
 
                     <tr key={user._id} className="text-[13px] text-blue-700 font-semibold leading-7 p-2">
-                      <td className="border-[1px] rounded-md border-fuchsia-950 text-center">{user.name}</td>
-                      <td className="border-[1px] rounded-md border-fuchsia-950 text-center">{user.email}</td>
+                      <td className="border-[1] rounded-md border-fuchsia-950 text-center">{user.name}</td>
+                      <td className="border-[1] rounded-md border-fuchsia-950 text-center">{user.email}</td>
 
                       <td>
-                        <button onClick={() => handleEdit(user)} className="border-fuchsia-600 border-2 rounded-md px-[66px] py-[0px] text-fuchsia-600">
+                        <button onClick={() => handleEdit(user)} className="border-fuchsia-600 border-2 rounded-md px-[66] py-0 text-fuchsia-600">
                           Edit User
                         </button>
                       </td>
 
                       <td>
-                        <button onClick={() => handleDelete(user._id)} className="border-red-500 border-2 rounded-md px-[58px] py-[0px] text-red-500">
+                        <button onClick={() => handleDelete(user._id)} className="border-red-500 border-2 rounded-md px-[58] py-0 text-red-500">
                           Delete User
                         </button>
                       </td>
