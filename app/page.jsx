@@ -114,7 +114,7 @@ export default function Home() {
 
             <input type="text" placeholder="Enter Email" value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-slate-300" required />
+              className="bg-slate-300" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
             <br /><br />
 
             <input type="password" placeholder="Password" value={password}
