@@ -112,7 +112,7 @@ export default function Home() {
               className="bg-slate-300" required />
             <br /><br />
 
-            <input type="text" placeholder="Enter Email" value={email}
+            <input type="text" placeholder="xxxx@gmail.com" value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="bg-slate-300" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
             <br /><br />
