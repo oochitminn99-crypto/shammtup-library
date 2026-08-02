@@ -12,6 +12,7 @@ export default function Home() {
 
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
+  const [error, setError] = useState("");
 
   //Get User
   const fetchUser = async () => {
@@ -68,10 +69,12 @@ export default function Home() {
       fetchUser();
 
       if(res.ok) {
-        router.push("/dashboard");
-      } else {
-        alert("login fail");
-      }
+        router.push("/sign-in");
+      } else if(res.status === 400) {
+          setError(data.message)
+      } else if(res.status === 500) {
+          setError(data.message)
+      } 
     }
   }
 
@@ -96,6 +99,13 @@ export default function Home() {
           <h1 className="text-xl font-bold my-4">
             Register
           </h1>
+
+        {!!error && (
+          <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6">
+              <p>{error}</p>
+          </div>
+        )}
+
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 space-y-1.5">
             <input type="text" placeholder="Enter Name" value={name}
               onChange={(e) => setName(e.target.value)}

@@ -12,7 +12,6 @@ export async function POST(req) {
     }
 
     if (!name || !email || !password) {
-        alert("All Fields are Required")
         return NextResponse.json({
             message: "All Fields are Required"
         }, { status: 400 })
@@ -36,7 +35,6 @@ export async function POST(req) {
 
         const existingUser = await User.findOne({email});
         if(existingUser) {
-            alert("User Already Exist");
             return NextResponse.json({
                 message: "User Already Exist"
             }, {status: 400})
