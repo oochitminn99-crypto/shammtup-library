@@ -5,39 +5,38 @@ import bcrypt from "bcryptjs";
 
 export async function POST(req) {
 
-    //input alert
-    const isValidEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    if (!name || !email || !password) {
-        return NextResponse.json({
-            message: "All Fields are Required"
-        }, { status: 400 })
-    } 
-    if (!isValidEmail) {
-        return NextResponse.json({
-            message: "Invalid Email Format"
-        }, { status: 400 })
-    } 
-    if (password.length < 6) {
-        return NextResponse.json({
-            message: "Password must be at least 6 character long"
-        }, { status: 400 })
-    }
-
-
     try {
         await connectDB();
         //const body = await req.json();
         const { name, email, password } = await req.json();
 
-        const existingUser = await User.findOne({email});
-        if(existingUser) {
+        //input alert
+        const isValidEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        if (!name || !email || !password) {
+            return NextResponse.json({
+                message: "All Fields are Required"
+            }, { status: 400 })
+        }
+        if (!isValidEmail) {
+            return NextResponse.json({
+                message: "Invalid Email Format"
+            }, { status: 400 })
+        }
+        if (password.length < 6) {
+            return NextResponse.json({
+                message: "Password must be at least 6 character long"
+            }, { status: 400 })
+        }
+
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
             return NextResponse.json({
                 message: "User Already Exist"
-            }, {status: 400})
+            }, { status: 400 })
         }
         //const user = await User.create(body);
         const hashedPassword = await bcrypt.hash(password, 10);
