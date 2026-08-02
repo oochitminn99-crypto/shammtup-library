@@ -125,10 +125,10 @@ export default function Home() {
               {editId ? "Update User" : "Create User"}
             </button>
 
-            <Link href={"/login"} className="text-md mt-2 me-3 text-right">
+            <Link href={"/sign-in"} className="text-md mt-2 me-3 text-right">
               Already have an account?
               <span className="underline underline-offset-2 text-blue-600 font-semibold ms-2.5">
-                Login
+                Sign In
               </span>
             </Link>
           </form>
