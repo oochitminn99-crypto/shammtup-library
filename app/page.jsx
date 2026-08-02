@@ -101,8 +101,8 @@ export default function Home() {
           </h1>
 
         {!!error && (
-          <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6">
-              <p>{error}</p>
+          <div className="bg-pink-200 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6">
+              <p className="text-fuchsia-900 font-bold">{error}</p>
           </div>
         )}
 
