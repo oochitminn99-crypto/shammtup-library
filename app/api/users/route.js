@@ -16,11 +16,13 @@ export async function POST(req) {
         return NextResponse.json({
             message: "All Fields are Required"
         }, { status: 400 })
-    } else if (!isValidEmail) {
+    } 
+    if (!isValidEmail) {
         return NextResponse.json({
             message: "Invalid Email Format"
         }, { status: 400 })
-    } else (password.length < 6) {
+    } 
+    if (password.length < 6) {
         return NextResponse.json({
             message: "Password must be at least 6 character long"
         }, { status: 400 })
