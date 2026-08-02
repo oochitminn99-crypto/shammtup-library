@@ -10,6 +10,19 @@ export async function POST(req) {
          const {name, email, password} = await req.json();
          const hashedPassword = await bcrypt.hash(password, 10);
 
+         //input alert
+         const isValidEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+         }
+
+         if(!name || !email || !password) {
+            return NextResponse.json({
+                message: "All Fields are Required",
+            })
+            alert("All fields are required")
+         }
+
          //const user = await User.create(body);
          const user = await User.create({name, email, password: hashedPassword});
 
