@@ -70,10 +70,6 @@ export default function Home() {
 
       if(res.ok) {
         router.push("/sign-in");
-      } else if(res.status === 400) {
-          setError(data.message)
-      } else if(res.status === 500) {
-          setError(data.message)
       } 
     }
   }
