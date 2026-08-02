@@ -30,7 +30,8 @@ export default function SignIn() {
             setError("Invalid Credentials");
             setPending(false)
         } else {
-            setError("Something went wrong")
+            alert("No Register");
+            setError("Something went wrong Or No Register");
         }
     }
 
