@@ -19,7 +19,7 @@ export default function SignIn() {
         setPending(true);
 
         const res = await signIn("credentials", {
-            redirect: false,
+            redirect: true,
             email,
             password
         })
