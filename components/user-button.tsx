@@ -37,7 +37,7 @@ const UserButton = () => {
                     <div className="flex items-center gap-4">
                         {
                             session ? (
-                                <div className="flex justify-end p-4 gap-4">
+                                <div className="flex justify-end space-x-3">
                                     
                                         
                                             <span>{session.user?.name}</span>
