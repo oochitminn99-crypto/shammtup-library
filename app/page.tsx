@@ -10,6 +10,10 @@ const Home = () => {
       <SessionProvider>
         <UserButton />
       </SessionProvider>
+
+      <h1 className="text-center text-2xl text-fuchsia-800 font-bold">
+        Home Page
+      </h1>
     </div>
   )
 }
