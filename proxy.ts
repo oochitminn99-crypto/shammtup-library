@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export default function proxy(request: NextRequest) {
-    const auth = request.cookies.get("auth")
+    const token = request.cookies.get("session_token")
 
-    if(!auth && request.nextUrl.pathname.startsWith("/dashboard")) {
+    if(!token && request.nextUrl.pathname.startsWith("/dashboard")) {
         return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
