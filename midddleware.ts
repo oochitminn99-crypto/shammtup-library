@@ -9,7 +9,7 @@ export default async function middleware(req: any, event: any) {
   const { pathname } = req.nextUrl;
 
   // 1. Redirect logged-in users away from the login/register pages
-  if ((pathname === "/sign-in" || pathname === "/sign-up") && isAuthenticated) {
+  if ((pathname === "/sign-in") && isAuthenticated) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
