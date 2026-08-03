@@ -65,7 +65,7 @@ export default function SignIn() {
                             continue
                         </button>
 
-                        <Link href={"/"} className="text-md mt-2 me-3 text-right">
+                        <Link href={"/sign-up"} className="text-md mt-2 me-3 text-right">
                             Already have an account?
                             <span className="underline underline-offset-2 text-blue-600 font-semibold ms-2.5">
                                 Register
