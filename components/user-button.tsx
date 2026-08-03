@@ -1,3 +1,5 @@
+"use client"
+
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { LuLoaderCircle } from "react-icons/lu";
