@@ -37,8 +37,8 @@ const UserButton = () => {
                     <div className="flex items-center gap-4">
                         {
                             session ? (
-                                <div>
-                                    <div className="outline-none relative float-right p-4 md:p-8">
+                                <div className="flex justify-end p-4 gap-4">
+                                    
                                         <div className="flex gap-4 items-center">
                                             <span>{session.user?.name}</span>
                                             <div className="size-10 hover:opacity-75 transition rounded-full">
@@ -47,10 +47,10 @@ const UserButton = () => {
                                             <div className="bg-sky-900 text-white">
                                                 {avatarFallback}
                                             </div>
-                                        </div>
+                                        
                                     </div>
-                                    <div className="w-52">
-                                        <div className="h-10" onClick={() => handleSignOut()}>
+                                    <div>
+                                        <div className="bg-mauve-600 text-white font-semibold px-3.5 py-0 rounded-sm cursor-pointer hover:scale-110 hover:bg-mauve-900" onClick={() => handleSignOut()}>
                                             Log Out
                                         </div>
                                     </div>
