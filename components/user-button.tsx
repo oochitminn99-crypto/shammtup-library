@@ -39,16 +39,16 @@ const UserButton = () => {
                             session ? (
                                 <div className="flex justify-end p-4 gap-4">
                                     
-                                        <div className="flex gap-4 items-center">
+                                        
                                             <span>{session.user?.name}</span>
                                             <div className="size-10 hover:opacity-75 transition rounded-full">
                                                 <Image src={`session.user?.image||undefined`} alt='' width={20} height={20} />
                                             </div>
-                                            <div className="flex bg-sky-900 text-white w-5 h-5 rounded-full items-center">
+                                            <div className="flex bg-sky-900 text-white w-5 h-5 rounded-full items-center justify-center">
                                                 {avatarFallback}
                                             </div>
                                         
-                                    </div>
+                                    
                                     <div>
                                         <div className="bg-mauve-600 text-white font-semibold px-3.5 py-0 rounded-sm cursor-pointer hover:scale-110 hover:bg-mauve-900" onClick={() => handleSignOut()}>
                                             Log Out
