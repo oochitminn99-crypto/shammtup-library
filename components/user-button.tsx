@@ -49,10 +49,10 @@ const UserButton = () => {
                 ) : (
 
                     <div className="flex justify-end p-4 gap-4">
-                        <button>
+                        <button className="bg-mauve-800 text-white font-semibold px-3.5 py-0 rounded-sm">
                             <Link href={"/sign-in"}>Sign In</Link>
                         </button>
-                        <button>
+                        <button className="bg-mauve-800 text-white font-semibold px-3.5 py-0 rounded-sm">
                             <Link href={"/sign-up"}>Sign Up</Link>
                         </button>
                     </div>
