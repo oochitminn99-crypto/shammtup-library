@@ -40,10 +40,9 @@ const UserButton = () => {
                                 <div className="flex items-center justify-end space-x-3">
                                     
                                         
-                                            <span>{session.user?.name}</span>
-                                            <div className="size-10 hover:opacity-75 transition rounded-full">
-                                                <Image src={`session.user?.image||undefined`} alt='' width={20} height={20} />
-                                            </div>
+                                            <span className="text-sm text-blue-800 font-semibold italic">
+                                                {session.user?.name}
+                                            </span>
                                             <div className="flex bg-sky-900 text-white w-5 h-5 rounded-full items-center justify-center">
                                                 {avatarFallback}
                                             </div>
