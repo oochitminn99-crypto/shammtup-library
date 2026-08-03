@@ -1,3 +1,5 @@
+"use client";
+
 import UserButton from "@/components/user-button"
 import {SessionProvider} from "next-auth/react";
 
