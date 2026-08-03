@@ -26,6 +26,9 @@ const UserButton = () => {
 
     return (
         <nav>
+            <h1 className="text-xl text-fuchsia-700 font-bold italic ms-2.5">
+                My Web
+            </h1>
             {
                 session ? (
                     <div>
@@ -49,11 +52,11 @@ const UserButton = () => {
                 ) : (
 
                     <div className="flex justify-end p-4 gap-4">
-                        <button className="bg-mauve-800 text-white font-semibold px-3.5 py-0 rounded-sm">
-                            <Link href={"/sign-in"}>Sign In</Link>
+                        <button className="bg-mauve-600 text-white font-semibold px-3.5 py-0 rounded-sm cursor-pointer hover:scale-110 hover:bg-mauve-900">
+                            <Link href={"/sign-in"} className="mb-1.5">Sign In</Link>
                         </button>
-                        <button className="bg-mauve-800 text-white font-semibold px-3.5 py-0 rounded-sm">
-                            <Link href={"/sign-up"}>Sign Up</Link>
+                        <button className="bg-mauve-600 text-white font-semibold px-3.5 py-0 rounded-sm cursor-pointer hover:scale-110 hover:bg-mauve-900">
+                            <Link href={"/sign-up"} className="mb-1.5">Sign Up</Link>
                         </button>
                     </div>
                 )
