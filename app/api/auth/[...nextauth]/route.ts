@@ -5,7 +5,12 @@ import bcrypt from "bcryptjs";
 import  CredentialsProvider  from "next-auth/providers/credentials";
 import { authConfig } from "@/auth.config";
 
-const handler = NextAuth({
+ export const {
+    handlers: {GET, POST},
+    auth,
+    signIn,
+    signOut,
+ } = NextAuth({
     ...authConfig,
     session: {
         strategy: "jwt",
@@ -64,4 +69,4 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET 
 
 });
-export { handler as GET, handler as POST}
+//export { handler as GET, handler as POST}
