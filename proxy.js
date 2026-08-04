@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import { authConfig } from "./auth.config";
-import NextAuth from "next-auth";
+import withAuth from "next-auth/middleware";
 
-const { auth } = NextAuth(authConfig);
+const { auth } =withAuth();
 import { PUBLIC_ROUTES, LOGIN, ROOT, PROTECTED_SUB_ROUTES } from "./lib/route";
 
 
-export async function proxy(request) {
+export async function withAuth(request) {
     const { NextURL } = request;
     const session = await auth();
     const isAuthenticated = !!session?.user;
