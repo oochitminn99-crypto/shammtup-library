@@ -5,7 +5,7 @@ const { auth } =withAuth();
 import { PUBLIC_ROUTES, LOGIN, ROOT, PROTECTED_SUB_ROUTES } from "./lib/route";
 
 
-export async function withAuth(request) {
+export async function proxy(request) {
     const { NextURL } = request;
     const session = await auth();
     const isAuthenticated = !!session?.user;
