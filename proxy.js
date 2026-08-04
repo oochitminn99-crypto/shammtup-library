@@ -7,14 +7,14 @@ import { PUBLIC_ROUTES, LOGIN, ROOT, PROTECTED_SUB_ROUTES } from "./lib/route";
 
 
 export async function proxy(request) {
-    const { NextUrl } = request;
+    const { NextURL } = request;
     const session = await auth();
     const isAuthenticated = !!session?.user;
 
-    const isPublicRoute = ((PUBLIC_ROUTES.find(route =>NextUrl.pathname.startsWith(route)) || NextUrl.pathname === ROOT) && !PROTECTED_SUB_ROUTES.find(route =>NextUrl.pathname.includes(route)));
+    const isPublicRoute = ((PUBLIC_ROUTES.find(route =>NextURL.pathname.startsWith(route)) || NextURL.pathname === ROOT) && !PROTECTED_SUB_ROUTES.find(route =>NextURL.pathname.includes(route)));
 
     if(!isAuthenticated && !isPublicRoute) {
-        return NextResponse.redirect(new URL(LOGIN, NextUrl));
+        return NextResponse.redirect(new URL(LOGIN, NextURL));
     }
 }
 

@@ -2,5 +2,13 @@ export const authConfig = {
     session: {
         strategy: "jwt",
     },
-    providers: [],
+    providers: [
+            CredentialsProvider({
+                name: "Credentials",
+                credentials: {
+                    email: {},
+                    password: {},
+                }
+            })
+            ],
 }
