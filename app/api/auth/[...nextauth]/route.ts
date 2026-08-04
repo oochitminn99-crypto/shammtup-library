@@ -3,8 +3,10 @@ import User from "@/models/User";
 import {connectDB} from "@/lib/mongoose";
 import bcrypt from "bcryptjs";
 import  CredentialsProvider  from "next-auth/providers/credentials";
+import { authConfig } from "@/auth.config";
 
 const handler = NextAuth({
+    ...authConfig,
     session: {
         strategy: "jwt",
     },
