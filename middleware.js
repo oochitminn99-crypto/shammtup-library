@@ -4,7 +4,7 @@ import NextAuth from "next-auth";
 
 const { auth } = NextAuth(authConfig);
 import { PUBLIC_ROUTES, LOGIN, ROOT, PROTECTED_SUB_ROUTES } from "./lib/route";
-import { NextURL } from "next/dist/server/web/next-url";
+
 
 export async function middleware(request) {
     const { NextUrl } = request;
